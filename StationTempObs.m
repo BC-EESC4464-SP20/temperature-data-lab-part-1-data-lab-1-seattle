@@ -6,8 +6,8 @@
 % your own line of code to accomplish the next task.
 
 %% 1a. Read in the file for your station as a data table
-filename = '702610.csv'; %change this to select a different station
-stationdata = readtable(filename);
+PNW='727930.csv'; %change this to select a different station
+stationdata = readtable(PNW);
 
 %% 1b-c. Investigate the data you are working with
 %Click in the workspace to open up the new table named stationdata. You
@@ -19,25 +19,27 @@ stationdata = readtable(filename);
 %You should also be able to see the latitude and longitude of the original
 %station in the csv file. Add these below:
 
-%stationlat = ; %uncomment to run this line of code after adding the station latitude
-%stationlon = ; %uncomment to run this line of code after adding the station longitude
+stationlat = 47.6; %uncomment to run this line of code after adding the station latitude
+stationlon = 122.33; %uncomment to run this line of code after adding the station longitude
 
 %% 2. Plot the data from a single month
 % Make a plot for all data from January with year on the x-axis and
 % temperature on the y-axis. You will want this plot to have individual
 % point markers rather than a line connecting each data point.
-
-% --> 
+ 
+ figure(1)
+ plot(stationdata.Year,stationdata.Jan,'-o')
+    
 
 % Calculate the monthly mean, minimum, maximum, and standard deviation
 % note: some of these values will come out as NaN is you use the regular
 % mean and std functions --> can you tell why? use the functions nanmean
 % and nanstd to avoid this issue.
 
-% --> monthMean = 
-% --> monthStd = 
-% --> monthMin = 
-% --> monthMax =
+JanMean = nanmean(stationdata.Jan);
+JanStd = nanstd(stationdata.Jan);
+JanhMin = min(stationdata.Jan);
+JanMax = max(stationdata.Jan);
 
 %% 3. Calculate the annual climatology
 % Extract the monthly temperature data from the table and store it in an
@@ -47,16 +49,16 @@ tempData = table2array(stationdata(:,4:15));
 %Calculate the mean, standard deviation, minimum, and maximum temperature
 %for every month. This will be similar to what you did above for a single
 %month, but now applied over all months simultaneously.
-% --> tempMean =
-% --> tempStd =
-% --> tempMin =
-% --> tempMax =
+tempMean = nanmean(tempData);
+tempStd = nanstd(tempData);
+tempMin = min(tempData);
+tempMax = max(tempData);
 
 %Use the plotting function "errorbar" to plot the monthly climatology with
 %error bars representing the standard deviation. Add a title and axis
 %labels. Use the commands "axis", "xlim", and/or "ylim" if you want to
 %change from the automatic x or y axis limits.
-    figure(1); clf
+    figure(2); clf
 % --> (note that this may take multiple lines of code)
 
 %% 4. Fill missing values with the monthly climatological value
