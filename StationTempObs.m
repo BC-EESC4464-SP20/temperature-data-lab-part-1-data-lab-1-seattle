@@ -1,4 +1,4 @@
-%% Add your names in a comment here at the beginning of the code!
+%% Kasey Cannon and Luther vom Eigen
 
 % Instructions: Follow through this code step by step, while also referring
 % to the overall instructions and questions from the lab assignment sheet.
@@ -59,7 +59,11 @@ tempMax = max(tempData);
 %labels. Use the commands "axis", "xlim", and/or "ylim" if you want to
 %change from the automatic x or y axis limits.
     figure(2); clf
-% --> (note that this may take multiple lines of code)
+    errorbar(tempMean,tempStd)
+    xlim([0 13])
+    xlabel('Month of the Year') 
+    ylabel('Temperature ^{\circ}C')
+    title('Monthly Climatological Temperature at Station 727930')
 
 %% 4. Fill missing values with the monthly climatological value
 % Find all values of NaN in tempData and replace them with the
