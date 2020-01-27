@@ -29,7 +29,10 @@ stationlon = 122.33; %uncomment to run this line of code after adding the statio
  
  figure(1)
  plot(stationdata.Year,stationdata.Jan,'-o')
-    
+ xlabel('Year')
+ ylabel('Temperature ^{\circ}C')
+ title('January Climatological Temperature at Station 727930')
+   
 
 % Calculate the monthly mean, minimum, maximum, and standard deviation
 % note: some of these values will come out as NaN is you use the regular
