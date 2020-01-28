@@ -85,12 +85,8 @@ end
 
 %% 5a. Calculate the annual mean temperature for each year
 %tempMean_new = mean(tempData_new)
+
 annualMean=mean(tempData_new,2)
-
-
-
-
-
 
 
 %% 5b-c. Calculate the temperature anomaly for each year, compared to the 1981-2000 mean
@@ -101,8 +97,10 @@ annualMean=mean(tempData_new,2)
 
 %Calculate the annual mean temperature over the period from 1981-2000
   %Use the find function to find rows contain data where stationdata.Year is between 1981 and 2000
-% -->
+ I = find(stationdata.Year > 1980 & stationdata.Year < 2001)
+ 
   %Now calculate the mean over the full time period from 1981-2000
+  
  periodamean=mean(annualMean(85:104))
 
 %Calculate the annual mean temperature anomaly as the annual mean
@@ -140,13 +138,14 @@ smoothanom=movmean(Anom,5)
     %1960 to the end of the observational period
     % Hint: start by finding the index for where 1960 is in the list of
     % years
-    %span60=polyfit(stationdata.Year(64:end),Anom(70:end),1)
+    I60 = find(stationdata.Year>1959)
+    span60=polyfit(stationdata.Year(64:end),Anom(64:end),1)
 
 %Add lines for each of these linear trends on the annual temperature
 %anomaly plot (you can do this either directly using the slope and intercept
 %values calculated with polyfit, or using the polyval function).
 %Plot each new line in a different color.
-% -->
+% -->refline(
 
 % Add a legend, axis labels, and a title to your temperature anomaly plot
 % --> 
