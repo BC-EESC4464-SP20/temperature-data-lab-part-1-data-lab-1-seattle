@@ -86,7 +86,7 @@ end
 %% 5a. Calculate the annual mean temperature for each year
 %tempMean_new = mean(tempData_new)
 
-annualMean=mean(tempData_new,2)
+annualMean=mean(tempData_new,2);
 
 
 %% 5b-c. Calculate the temperature anomaly for each year, compared to the 1981-2000 mean
