@@ -148,13 +148,13 @@ figure(3); clf
  title('Annual mean temperature anomaly(from 1981-2000 baseline)at Station 727930')
  hold on 
 
- hline =refline(span(1,1),span(1,2))
+ hline =refline(span(1,1),span(1,2));
  hline.Color = 'r';
  plot(stationdata.Year,smoothanom, '-k')
 
- x = (1960:2018);
+ x = linspace(1960,2018);
  y = span60(1)* x + span60(2);
- plot(x,y)
+ line(x,y)
  
  
  
