@@ -108,15 +108,6 @@ annualMean=mean(tempData,2);
 Anom=annualMean-periodamean;
 
 %% 6a. Plot the annual temperature anomaly over the full observational record
-figure(3); clf
-%Make a scatter plot with year on the x axis and the annual mean
-%temperature anomaly on the y axis
- scatter(stationdata.Year,Anom)
- xlabel('Year') 
- ylabel('Temperature ^{\circ}C')
- ylim([-2 2])
- title('Annual mean temperature anomaly(from 1981-2000 baseline)at Station 727930')
- hold on 
 %% 6b. Smooth the data by taking a 5-year running mean of the data to plot
 %This will even out some of the variability you observe in the scatter
 %plot. There are many methods for filtering data, but this is one of the
@@ -125,7 +116,7 @@ figure(3); clf
 smoothanom=movmean(Anom,5) 
 
 %Now add a line with this smoothed data to the scatter plot
- plot(stationdata.Year,smoothanom, '-k')
+ 
 
 %% 7. Add and plot linear trends for whole time period, and for 1960 to today
 %Here we will use the function polyfit to calculate a linear fit to the data
@@ -147,8 +138,24 @@ smoothanom=movmean(Anom,5)
 %anomaly plot (you can do this either directly using the slope and intercept
 %values calculated with polyfit, or using the polyval function).
 %Plot each new line in a different color.
+figure(3); clf
+%Make a scatter plot with year on the x axis and the annual mean
+%temperature anomaly on the y axis
+ scatter(stationdata.Year,Anom)
+ xlabel('Year') 
+ ylabel('Temperature ^{\circ}C')
+ ylim([-2 2])
+ title('Annual mean temperature anomaly(from 1981-2000 baseline)at Station 727930')
+ hold on 
+
  hline =refline(span(1,1),span(1,2))
  hline.Color = 'r';
+ plot(stationdata.Year,smoothanom, '-k')
+
+ x = (1960:2018);
+ y = span60(1)* x + span60(2);
+ plot(x,y)
+ 
  
  
 % Add a legend, axis labels, and a title to your temperature anomaly plot
