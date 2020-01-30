@@ -114,6 +114,7 @@ figure(3); clf
  scatter(stationdata.Year,Anom)
  xlabel('Year') 
  ylabel('Temperature ^{\circ}C')
+ ylim([-2 2])
  title('Annual mean temperature anomaly(from 1981-2000 baseline)at Station 727930')
  hold on 
 %% 6b. Smooth the data by taking a 5-year running mean of the data to plot
@@ -146,7 +147,9 @@ smoothanom=movmean(Anom,5)
 %anomaly plot (you can do this either directly using the slope and intercept
 %values calculated with polyfit, or using the polyval function).
 %Plot each new line in a different color.
-% -->refline(
-
+ hline =refline(span(1,1),span(1,2))
+ hline.Color = 'r';
+ 
+ 
 % Add a legend, axis labels, and a title to your temperature anomaly plot
 % --> 
