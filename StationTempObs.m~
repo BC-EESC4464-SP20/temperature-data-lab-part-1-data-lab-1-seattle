@@ -166,5 +166,5 @@ hold on
 % Add a legend, axis labels, and a title to your temperature anomaly plot
 % --> 
 
-legend('data','Linear Trend','Smoothed Anomally','Linear Trend from 1960-2018')
+legend('data','Smoothed Anomally',)
  
