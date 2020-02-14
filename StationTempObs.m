@@ -7,6 +7,7 @@
 
 %% 1a. Read in the file for your station as a data table
 PNW='727930.csv'; %change this to select a different station
+
 stationdata = readtable(PNW);
 
 %% 1b-c. Investigate the data you are working with
@@ -101,7 +102,7 @@ annualMean=mean(tempData,2);
  
   %Now calculate the mean over the full time period from 1981-2000
   
- periodamean=mean(annualMean(I))
+ periodamean=mean(annualMean(I));
 
 %Calculate the annual mean temperature anomaly as the annual mean
 %temperature for each year minus the baseline mean temperature
@@ -113,7 +114,7 @@ Anom=annualMean-periodamean;
 %plot. There are many methods for filtering data, but this is one of the
 %most straightforward - use the function movmean for this. For information
 %about how to use this function, type "help movmean" in the command window.
-smoothanom=movmean(Anom,5) 
+smoothanom=movmean(Anom,5); 
 
 %Now add a line with this smoothed data to the scatter plot
  
@@ -124,17 +125,17 @@ smoothanom=movmean(Anom,5)
 %read the documentation at https://www.mathworks.com/help/matlab/data_analysis/linear-regression.html
     %use polyfit to calculate the slope and intercept of a best fit line
     %over the entire observational period
-    span=polyfit(stationdata.Year,Anom,1)
+    span=polyfit(stationdata.Year,Anom,1);
     
     %also calculate the slope and intercept of a best fit line just from
     %1960 to the end of the observational period
     % Hint: start by finding the index for where 1960 is in the list of
     % years
-    I60 = find(stationdata.Year>1959)
-     x=stationdata.Year(I60),
-     y=Anom(64:end)
+    I60 = find(stationdata.Year>1959);
+     x=stationdata.Year(I60);
+     y=Anom(64:end);
     
-    p=polyfit(x,y,1)
+    p=polyfit(x,y,1);
 
 %Add lines for each of these linear trends on the annual temperature
 %anomaly plot (you can do this either directly using the slope and intercept
