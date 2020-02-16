@@ -109,6 +109,8 @@ annualMean=mean(tempData,2);
 Anom=annualMean-periodamean;
 
 %% 6a. Plot the annual temperature anomaly over the full observational record
+
+
 %% 6b. Smooth the data by taking a 5-year running mean of the data to plot
 %This will even out some of the variability you observe in the scatter
 %plot. There are many methods for filtering data, but this is one of the
@@ -167,5 +169,5 @@ hold on
 % Add a legend, axis labels, and a title to your temperature anomaly plot
 % --> 
 
-legend('data','Linear Trend','Smoothed Anomally','Linear Trend from 1960-2018')
+legend('Data','Linear Trend','Smoothed Anomally','Linear Trend from 1960-2018')
  

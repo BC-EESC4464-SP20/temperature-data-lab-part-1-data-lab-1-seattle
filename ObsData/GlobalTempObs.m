@@ -64,6 +64,29 @@ end
 %temperature for each year minus the baseline mean temperature
 Anom_glob=annualMean_glob-periodamean_glob;
 
+figure(3); clf
+%Make a scatter plot with year on the x axis and the annual mean
+%temperature anomaly on the y axis
+ scatter(stationdata_glob.Year,Anom_glob)
+ xlabel('Year') 
+ ylabel('Temperature ^{\circ}C')
+ ylim([-2 2])
+ title('Global annual mean temperature anomaly(from 1981-2000 baseline)')
+ hold on 
+smoothanom_glob=movmean(Anom_glob,5);
+span=polyfit(stationdata_glob.Year,Anom_glob,1);
+I60 = find(stationdata_glob.Year>1959);
+x=stationdata_glob.Year(I60);
+y=Anom(64:end);
+p=polyfit(x,y,1);
+ hline =refline(span(1,1),span(1,2));
+ hline.Color = 'r';
+ plot(stationdata_glob.Year,smoothanom_glob, '-k')
+hold on 
+ f=polyval(p,x);
+ plot(x,f,'-b')
+legend('Data','Linear Trend','Smoothed Anomally','Linear Trend from 1960-2018')
+
 %Range for extension Part 2 
 
 
@@ -72,3 +95,5 @@ Ir = find(stationdata_glob.Year >= 1960)
 range_year = stationdata_glob.Year(Ir)
 range_anom = Anom_glob(Ir)
 [P_glob] = polyfit(range_year, range_anom,1)
+
+

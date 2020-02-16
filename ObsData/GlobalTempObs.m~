@@ -71,4 +71,6 @@ Ir = find(stationdata_glob.Year >= 1960)
 
 range_year = stationdata_glob.Year(Ir)
 range_anom = Anom_glob(Ir)
-[P_glob] = polyfit(range_year, range_anom)
+[P_glob] = polyfit(range_year, range_anom,1)
+
+
