@@ -1,4 +1,4 @@
-%% Kasey Cannon and Luther vom Eigen
+%% Kasey Cannon 
 
 % Instructions: Follow through this code step by step, while also referring
 % to the overall instructions and questions from the lab assignment sheet.
@@ -159,7 +159,7 @@ figure(3); clf
 hold on 
 
 
- f=polyval(p,x);
+ f=polyval(p,stationdata.Year(I60));
  plot(x,f,'-b')
  
 
